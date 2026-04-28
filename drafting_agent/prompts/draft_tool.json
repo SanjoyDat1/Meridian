@@ -1,0 +1,52 @@
+{
+  "name": "submit_letter_draft",
+  "description": "Submit the finished appeal letter bundle derived strictly from the provided strategy JSON.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "appeal_letter": {
+        "type": "string",
+        "description": "Full letter body with \\n paragraph breaks. No fabricated facts."
+      },
+      "citations_footnoted": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "footnote_index": {"type": "integer"},
+            "source": {"type": "string"},
+            "quote": {"type": "string"},
+            "relevance_score": {"type": "number"}
+          },
+          "required": ["footnote_index", "source", "quote", "relevance_score"]
+        }
+      },
+      "exhibits_checklist": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "exhibit_label": {"type": "string"},
+            "description": {"type": "string"},
+            "required": {"type": "boolean"}
+          },
+          "required": ["exhibit_label", "description", "required"]
+        }
+      },
+      "submission_instructions": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "deadline": {"type": "string"},
+      "generation_note": {"type": "string"}
+    },
+    "required": [
+      "appeal_letter",
+      "citations_footnoted",
+      "exhibits_checklist",
+      "submission_instructions",
+      "deadline",
+      "generation_note"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-paper-line;
+  }
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
+  /* Ensure native buttons don’t collapse label contrast (esp. with inherited `color` on headers). */
+  button {
+    @apply font-sans antialiased;
+  }
+}
